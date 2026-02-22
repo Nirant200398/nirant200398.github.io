@@ -3,189 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axlecargo Express | Engineering Modern Logistics</title>
+    <title>AXLECARGO EXPRESS | Precision Logistics Engineering</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-blue: #1d70b8; 
-            --brand-gray: #374151; 
-            --dark-bg: #020617;    
+            --sky-blue: #00AEEF; 
+            --ios-blue: #007AFF;
+            --liquid-white: #ffffff;
+            --soft-gray: #F2F2F7;
+            --text-dark: #1C1C1E;
         }
+
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--dark-bg);
-            color: #f8fafc;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
-        .text-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* Animated Sky Blue Liquid Mesh Background */
+        .sky-liquid-gradient {
+            background: radial-gradient(at 0% 0%, rgba(0, 174, 239, 0.1) 0px, transparent 50%),
+                        radial-gradient(at 100% 0%, rgba(90, 200, 250, 0.08) 0px, transparent 50%),
+                        radial-gradient(at 50% 50%, rgba(255, 255, 255, 1) 0px, transparent 100%),
+                        radial-gradient(at 0% 100%, rgba(122, 219, 255, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
         }
-        .blue-gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, var(--brand-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* Premium Frosted Glass Effect - Upgraded for iOS depth */
+        .frosted-glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(40px) saturate(210%);
+            -webkit-backdrop-filter: blur(40px) saturate(210%);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 30px 60px -12px rgba(0, 0, 0, 0.08),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .hero-mask {
-            background: radial-gradient(circle at center, transparent 0%, var(--dark-bg) 100%);
-        }
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(29, 112, 184, 0.4);
+
+        .frosted-glass:hover {
+            background: rgba(255, 255, 255, 0.65);
+            border-color: var(--sky-blue);
             transform: translateY(-12px);
-            box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 50px 100px rgba(0, 174, 239, 0.12);
         }
-        .nav-blur {
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #007AFF 0%, #00AEEF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .float-anim { animation: float 8s ease-in-out infinite; }
+
+        .hero-mask {
+            background: linear-gradient(to bottom, transparent, #ffffff 95%);
+        }
+
+        @keyframes float-pro {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(0.5deg); }
+        }
+        .float-anim { animation: float-pro 10s ease-in-out infinite; }
+
+        .btn-sky {
+            background: var(--sky-blue);
+            color: white;
+            box-shadow: 0 15px 35px rgba(0, 174, 239, 0.25);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-sky:hover {
+            background: var(--ios-blue);
+            box-shadow: 0 25px 50px rgba(0, 122, 255, 0.35);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .section-tag {
+            letter-spacing: 0.5em;
+            color: var(--sky-blue);
+            font-weight: 800;
+            font-size: 9px;
+        }
         
-        .success-overlay {
-            display: none;
-            position: absolute;
-            inset: 0;
-            background: rgba(2, 6, 23, 0.98);
-            backdrop-filter: blur(12px);
-            z-index: 50;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-radius: 2.5rem;
-        }
-
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.18;
-            filter: grayscale(100%) brightness(0.7);
-        }
-
-        .brand-text {
-            letter-spacing: -0.06em;
+        .hero-title-line {
+            line-height: 0.9;
+            letter-spacing: -0.05em;
         }
     </style>
 </head>
-<body class="selection:bg-blue-600 selection:text-white">
+<body class="sky-liquid-gradient selection:bg-blue-100">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-[100] nav-blur transition-all duration-500">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-[100] nav-glass transition-all duration-700">
         <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-4 group cursor-pointer">
-                <div class="w-11 h-11 bg-blue-600 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:bg-blue-500">
-                    <i class="fas fa-route text-white text-xl"></i>
+                <div class="w-10 h-10 bg-[#00AEEF] rounded-xl flex items-center justify-center transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(0,174,239,0.4)]">
+                    <i class="fas fa-route text-white text-lg"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-2xl font-black brand-text tracking-tighter leading-none">AXLECARGO</span>
-                    <span class="text-[9px] font-black text-blue-500 tracking-[0.3em] uppercase mt-0.5">Express Logistics</span>
+                    <span class="text-2xl font-black tracking-tighter leading-none text-slate-800 uppercase">AXLECARGO EXPRESS</span>
+                    <span class="text-[8px] font-bold text-[#00AEEF] tracking-[0.4em] uppercase mt-1">Delivering Speed & Trust</span>
                 </div>
             </div>
             
-            <div class="hidden lg:flex items-center gap-12 text-[10px] font-black tracking-[0.2em] uppercase">
-                <a href="#about" class="text-slate-500 hover:text-white transition-colors duration-300">Expertise</a>
-                <a href="#services" class="text-slate-500 hover:text-white transition-colors duration-300">Systems</a>
-                <a href="#founders" class="text-slate-500 hover:text-white transition-colors duration-300">Leadership</a>
-                <a href="#contact" class="px-7 py-3 bg-white text-slate-950 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-lg font-bold">Consultation</a>
+            <div class="hidden lg:flex items-center gap-12 text-[10px] font-black tracking-[0.2em] uppercase text-slate-400">
+                <a href="#about" class="hover:text-[#00AEEF] transition-colors">Expertise</a>
+                <a href="#services" class="hover:text-[#00AEEF] transition-colors">Logistics Services</a>
+                <a href="#founders" class="hover:text-[#00AEEF] transition-colors">Leadership</a>
+                <a href="#contact" class="px-8 py-3 bg-slate-900 text-white rounded-full hover:bg-[#00AEEF] transition-all duration-500 shadow-xl font-bold">Inquiry</a>
             </div>
 
-            <button id="mobile-menu-toggle" class="lg:hidden text-2xl text-slate-400"><i class="fas fa-bars-staggered"></i></button>
+            <button id="mobile-menu-toggle" class="lg:hidden text-2xl text-slate-800"><i class="fas fa-bars-staggered"></i></button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="video-container">
-            <video autoplay muted loop playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-truck-driving-on-the-highway-at-night-34563-large.mp4" type="video/mp4">
-            </video>
-            <div class="absolute inset-0 hero-mask"></div>
-            <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 60px 60px;"></div>
-        </div>
+    <section id="home" class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-white">
+        <div class="absolute inset-0 hero-mask z-0"></div>
+        <div class="absolute top-[-10%] right-[-5%] w-[60%] h-[80%] bg-blue-50/50 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-                <div class="inline-flex items-center gap-4 px-5 py-2 rounded-full bg-blue-500/5 border border-white/5 text-slate-500 text-[9px] font-black uppercase tracking-[0.4em] mb-12">
-                    <span class="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
-                    Advanced Supply Chain Engineering
-                </div>
-                <h1 class="text-7xl md:text-9xl font-black leading-[0.9] mb-12 text-gradient tracking-tighter">
-                    Speed. <br><span class="blue-gradient-text">Trust.</span> <br>Delivered.
-                </h1>
-                <p class="text-xl text-slate-400 max-w-lg mb-14 leading-relaxed font-medium">
-                    Built on 12 years of core industry mastery. We engineer the infrastructure of Indian commerce with precision and integrity.
-                </p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="#contact" class="px-12 py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black uppercase text-[10px] tracking-widest transition flex items-center gap-5 group shadow-3xl">
-                        Initiate Protocol
-                        <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-1 transition"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="hidden lg:block relative">
-                <div class="glass-card p-12 rounded-[3.5rem] float-anim border-t-2 border-white/10">
-                    <div class="flex items-end gap-3 mb-6">
-                        <h4 class="text-7xl font-black tracking-tighter text-blue-500 leading-none">12+</h4>
-                        <span class="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] mb-2">Years Domain Mastery</span>
+        <div class="relative z-10 max-w-7xl mx-auto px-8">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7 space-y-12">
+                    <div class="inline-flex items-center gap-4 px-6 py-2 rounded-full bg-blue-50 border border-blue-100 text-[#00AEEF] text-[9px] font-black uppercase tracking-[0.5em]">
+                        <span class="w-2 h-2 rounded-full bg-[#00AEEF] animate-pulse shadow-[0_0_10px_rgba(0,174,239,0.5)]"></span>
+                        Precision Engineering 2025
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed font-medium">Providing high-performance logistics across the Indian sub-continent through strategic engineering and verified vendor networks.</p>
+                    
+                    <div class="space-y-4">
+                        <h1 class="text-6xl md:text-8xl xl:text-[9.5rem] font-black hero-title-line text-slate-900 uppercase">
+                            AXLECARGO <br>
+                            <span class="text-gradient-blue">EXPRESS.</span>
+                        </h1>
+                    </div>
+
+                    <p class="text-xl md:text-2xl text-slate-500 max-w-xl leading-relaxed font-light tracking-tight">
+                        Architecting India's supply chain through 12 years of mastery. Engineering the future of commerce with <span class="text-slate-800 font-bold">absolute reliability</span>.
+                    </p>
+
+                    <div class="flex flex-wrap gap-8 pt-4">
+                        <a href="#contact" class="btn-sky px-14 py-6 rounded-3xl font-black uppercase text-[11px] tracking-[0.3em] flex items-center gap-6 group shadow-2xl">
+                            Initiate Protocol
+                            <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-3 transition-transform duration-500"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-5 relative">
+                    <div class="frosted-glass p-12 md:p-20 rounded-[5rem] float-anim relative border-t-8 border-white overflow-hidden group">
+                        <div class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-1000"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-end gap-5 mb-10">
+                                <h4 class="text-9xl font-black tracking-tighter text-slate-900 leading-none">12+</h4>
+                                <div class="mb-4">
+                                    <span class="text-[#00AEEF] text-[10px] font-black uppercase tracking-[0.5em] block mb-2">Years</span>
+                                    <span class="text-slate-400 text-xs font-bold uppercase tracking-widest">Industry mastery</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-500 text-xl font-medium leading-relaxed tracking-tight">
+                                High-performance logistics infrastructure built for the modern Indian landscape by <span class="text-[#00AEEF] font-bold">AXLECARGO EXPRESS</span>.
+                            </p>
+                            
+                            <div class="mt-12 flex gap-3">
+                                <div class="w-12 h-2 bg-[#00AEEF] rounded-full"></div>
+                                <div class="w-2 h-2 bg-slate-200 rounded-full"></div>
+                                <div class="w-2 h-2 bg-slate-200 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute top-[-40px] right-[-20px] w-24 h-24 bg-white rounded-3xl shadow-2xl flex items-center justify-center text-[#00AEEF] text-3xl rotate-12 z-20 border border-slate-50">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-48 bg-slate-950 relative overflow-hidden border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <section id="about" class="py-48 bg-white relative">
+        <div class="max-w-7xl mx-auto px-8">
             <div class="grid lg:grid-cols-2 gap-32 items-center">
-                <div class="relative">
-                    <div class="absolute -inset-10 bg-blue-600/5 blur-[120px] rounded-full"></div>
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" alt="Logistics Infrastructure" class="relative rounded-[4rem] grayscale opacity-70 border border-white/5 shadow-3xl">
-                    <div class="absolute -bottom-10 -right-10 glass-card p-8 rounded-[2.5rem] hidden md:block">
-                        <span class="text-3xl font-black text-blue-500 tracking-tighter block">Est. 2025</span>
-                        <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest mt-1">New Age Ready</span>
-                    </div>
+                <div class="relative group">
+                    <div class="absolute -inset-10 bg-blue-100 blur-[100px] rounded-full opacity-30"></div>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200" alt="Supply Chain" class="relative rounded-[4rem] shadow-3xl border-8 border-white group-hover:scale-[1.02] transition-transform duration-700">
                 </div>
                 <div>
-                    <h2 class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8">Expertise</h2>
-                    <h3 class="text-6xl font-black text-gradient mb-12 leading-[1.1] tracking-tighter">About Axlecargo.</h3>
-                    <div class="space-y-10 text-slate-400 leading-relaxed font-medium text-lg">
-                        <p>Axlecargo Express Logistics is a newly established logistics and supply chain solutions provider committed to delivering reliable, cost-effective, and timely transportation services across India.</p>
-                        <p>With a focus on technology-driven operations and safety, we aim to be a trusted partner for businesses seeking efficient support, backed by 12 years of rich domain expertise.</p>
-                    </div>
+                    <h2 class="section-tag mb-8 uppercase">Expertise</h2>
+                    <h3 class="text-6xl font-black text-slate-900 mb-10 tracking-tighter leading-tight">About AXLECARGO EXPRESS.</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed font-medium mb-12">
+                        AXLECARGO EXPRESS is a newly established supply chain provider committed to delivering reliable, cost-effective, and timely transportation across India. Backed by 12 years of rich experience, we handle diverse cargo requirements with a focus on safety and technology-driven operations.
+                    </p>
                     
-                    <div class="mt-20 grid grid-cols-2 gap-12">
-                        <div class="space-y-3">
-                            <span class="block text-4xl font-black text-white tracking-tighter">Vision</span>
-                            <p class="text-xs text-slate-500 font-medium leading-relaxed">To be recognized as a leading logistics provider known for speed, reliability, and innovation.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="p-10 rounded-[3rem] bg-blue-50 border border-blue-100">
+                            <span class="block text-2xl font-black text-slate-900 mb-4">Vision</span>
+                            <p class="text-xs text-slate-500 font-bold leading-relaxed uppercase tracking-wider">To be recognized as a leading provider known for speed and innovation.</p>
                         </div>
-                        <div class="space-y-3">
-                            <span class="block text-4xl font-black text-white tracking-tighter">Mission</span>
-                            <p class="text-xs text-slate-500 font-medium leading-relaxed">To provide end-to-end solutions that simplify supply chain management and help businesses grow.</p>
+                        <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100">
+                            <span class="block text-2xl font-black text-slate-900 mb-4">Mission</span>
+                            <p class="text-xs text-slate-500 font-bold leading-relaxed uppercase tracking-wider">End-to-end logistics solutions that help modern businesses grow.</p>
                         </div>
                     </div>
                 </div>
@@ -193,102 +218,110 @@
         </div>
     </section>
 
-    <!-- Services & Systems -->
-    <section id="services" class="py-48 relative">
+    <!-- Services Section -->
+    <section id="services" class="py-48 bg-[#F8FAFC]">
         <div class="max-w-7xl mx-auto px-8">
-            <div class="mb-32">
-                <h2 class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8">Solutions</h2>
-                <h3 class="text-6xl font-black text-gradient tracking-tighter">Engineering Our Services.</h3>
+            <div class="mb-32 text-center">
+                <h2 class="section-tag mb-6 uppercase">Solutions</h2>
+                <h3 class="text-7xl font-black text-slate-900 tracking-tighter uppercase">Enquiry</h3>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-10">
-                <div class="glass-card p-12 rounded-[3.5rem] group">
-                    <div class="w-16 h-16 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center text-3xl mb-12 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <i class="fas fa-truck-ramp-box"></i>
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="frosted-glass p-14 rounded-[4.5rem] group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-2xl mb-10 text-[#00AEEF] shadow-sm group-hover:bg-[#00AEEF] group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-truck-fast"></i>
                     </div>
-                    <h4 class="text-2xl font-bold mb-6 tracking-tight text-white uppercase text-xs tracking-widest">Transportation (FTL & PTL)</h4>
-                    <p class="text-slate-500 text-base leading-relaxed font-medium">Specialized Full Truck Load and Part Truck Load movements at specific locations designed for industrial-scale efficiency.</p>
+                    <h4 class="text-2xl font-bold mb-6 tracking-tight text-slate-900">FTL & PTL Ops</h4>
+                    <p class="text-slate-500 text-base leading-relaxed font-medium">FTL-Full Truck Load / PTL-Part Truck Load at specific Location movements optimized for high-volume industrial throughput.</p>
                 </div>
 
-                <div class="glass-card p-12 rounded-[3.5rem] group">
-                    <div class="w-16 h-16 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center text-3xl mb-12 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <i class="fas fa-map-location-dot"></i>
+                <div class="frosted-glass p-14 rounded-[4.5rem] group border-t-8 border-t-[#00AEEF]">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-2xl mb-10 text-[#00AEEF] shadow-sm group-hover:bg-[#00AEEF] group-hover:text-white transition-all duration-500">
+                        <i class="fas fa-box-open"></i>
                     </div>
-                    <h4 class="text-2xl font-bold mb-6 tracking-tight text-white uppercase text-xs tracking-widest">Express Delivery</h4>
-                    <p class="text-slate-500 text-base leading-relaxed font-medium">Seamless door-to-door delivery services across India, providing terminal endpoint connectivity for critical cargo.</p>
+                    <h4 class="text-2xl font-bold mb-6 tracking-tight text-slate-900">Express Delivery</h4>
+                    <p class="text-slate-500 text-base leading-relaxed font-medium">Endpoint connectivity across India for retail and white goods with zero intermediate friction or delay.</p>
                 </div>
-            </div>
 
-            <div class="grid lg:grid-cols-2 gap-10 mt-10">
-                <div class="glass-card p-12 rounded-[3.5rem] group">
-                    <div class="w-16 h-16 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center text-3xl mb-12 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <div class="frosted-glass p-14 rounded-[4.5rem] group">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-2xl mb-10 text-[#00AEEF] shadow-sm group-hover:bg-[#00AEEF] group-hover:text-white transition-all duration-500">
                         <i class="fas fa-warehouse"></i>
                     </div>
-                    <h4 class="text-2xl font-bold mb-6 tracking-tight text-white uppercase text-xs tracking-widest">Warehousing & Dist.</h4>
-                    <p class="text-slate-500 text-base leading-relaxed font-medium">State-of-the-art storage and distribution frameworks optimized for FMCG, Pharma, and White Goods.</p>
-                </div>
-
-                <div class="glass-card p-12 rounded-[3.5rem] group">
-                    <div class="w-16 h-16 bg-blue-600/10 text-blue-500 rounded-2xl flex items-center justify-center text-3xl mb-12 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold mb-6 tracking-tight text-white uppercase text-xs tracking-widest">Industrial & Project Cargo</h4>
-                    <p class="text-slate-500 text-base leading-relaxed font-medium">Specialized handling of oversized machinery and high-value project cargo with zero-compromise safety protocols.</p>
-                </div>
-            </div>
-            
-            <!-- Industries Served -->
-            <div class="mt-32 pt-24 border-t border-white/5">
-                <h5 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-16 text-center">Core Industrial Verticals</h5>
-                <div class="flex flex-wrap justify-center gap-x-20 gap-y-10">
-                    <span class="text-xl font-black text-slate-400 tracking-tighter">FMCG</span>
-                    <span class="text-xl font-black text-slate-400 tracking-tighter">PHARMACEUTICALS</span>
-                    <span class="text-xl font-black text-slate-400 tracking-tighter">E-COMMERCE</span>
-                    <span class="text-xl font-black text-slate-400 tracking-tighter">AUTOMOTIVE</span>
-                    <span class="text-xl font-black text-slate-400 tracking-tighter">INDUSTRIAL GOODS</span>
-                    <span class="text-xl font-black text-slate-400 tracking-tighter">WHITE GOODS</span>
+                    <h4 class="text-2xl font-bold mb-6 tracking-tight text-slate-900">Warehousing</h4>
+                    <p class="text-slate-500 text-base leading-relaxed font-medium">Scalable storage and distribution hubs engineered to manage inventory complexity for Pharmaceuticals and FMCG.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Leadership Section -->
-    <section id="founders" class="py-48 bg-slate-950 border-y border-white/5">
+    <section id="founders" class="py-48 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-32">
-                <h2 class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8">Leadership</h2>
-                <h3 class="text-6xl font-black text-gradient tracking-tighter">The Founding Visionaries.</h3>
+            <div class="text-center mb-24">
+                <h2 class="section-tag mb-6 uppercase">Leadership</h2>
+                <h3 class="text-7xl font-black text-slate-900 tracking-tighter uppercase">The Visionary Core.</h3>
+            </div>
+
+            <!-- New Founder Intro Text Block - UPDATED WITH FULL DETAILS -->
+            <div class="max-w-5xl mx-auto mb-20 p-10 md:p-14 rounded-[4rem] bg-blue-50 border border-blue-100 shadow-sm">
+                <p class="text-lg md:text-xl text-slate-700 leading-relaxed font-medium mb-8">
+                    Mr. Akshay Vavdiya & Mr. Santosh Jaiswar are the visionaries behind <span class="text-slate-900 font-extrabold uppercase">AXLECARGO EXPRESS</span>, bringing over 12 years of extensive experience for leading corporates, building a reputation for efficiency, commitment, and customer focus in the logistics and supply chain industry.
+                </p>
+                
+                <div class="space-y-6 mb-10">
+                    <p class="text-[10px] font-black text-[#00AEEF] uppercase tracking-[0.4em]">Throughout their careers, they have successfully handled:</p>
+                    <ul class="grid md:grid-cols-1 gap-5">
+                        <li class="flex items-start gap-5 p-6 bg-white/60 rounded-3xl border border-blue-100">
+                            <div class="w-10 h-10 bg-[#00AEEF] rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm"><i class="fas fa-truck-container"></i></div>
+                            <span class="text-slate-600 font-medium leading-relaxed">Large-scale transportation projects including Part Load (PTL/LTL) & Full Truck Load (FTL) movements.</span>
+                        </li>
+                        <li class="flex items-start gap-5 p-6 bg-white/60 rounded-3xl border border-blue-100">
+                            <div class="w-10 h-10 bg-[#00AEEF] rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm"><i class="fas fa-handshake"></i></div>
+                            <span class="text-slate-600 font-medium leading-relaxed">Key client relationships, ensuring cost-effective and reliable solutions.</span>
+                        </li>
+                        <li class="flex items-start gap-5 p-6 bg-white/60 rounded-3xl border border-blue-100">
+                            <div class="w-10 h-10 bg-[#00AEEF] rounded-xl flex items-center justify-center text-white shrink-0 shadow-sm"><i class="fas fa-chart-line"></i></div>
+                            <span class="text-slate-600 font-medium leading-relaxed">Operational excellence initiatives that reduced turnaround times and improved service quality.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="text-slate-600 font-medium leading-relaxed mb-8">
+                    With deep industry knowledge, leadership skills, and a customer-first approach, Akshay Vavdiya & Santosh Jaiswar have built a strong foundation for the company.
+                </p>
+
+                <div class="p-8 rounded-3xl bg-white border border-[#00AEEF]/20 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-[#00AEEF]"></div>
+                    <p class="text-slate-500 italic font-medium leading-relaxed relative z-10">
+                        "Our vision is to create a technology-driven logistics firm that combines reliability, transparency, and innovation to deliver world-class services."
+                    </p>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-20 max-w-6xl mx-auto">
+                <!-- Founder Cards -->
                 <div class="group relative">
-                    <div class="aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/5 relative bg-slate-900 shadow-3xl">
-                        <img src="https://raw.githubusercontent.com/Nirant200398/nirant200398.github.io/main/Photo%20-%20Akshay.jpeg" alt="Mr. Akshay Vavdiya" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-100"></div>
-                        <div class="absolute bottom-0 left-0 p-14 w-full">
-                            <h4 class="text-3xl font-black text-white mb-3 tracking-tighter leading-none">Mr. Akshay Vavdiya</h4>
-                            <p class="text-blue-500 font-black uppercase text-[10px] tracking-[0.5em] mb-8">Co-Founder</p>
-                            <ul class="text-slate-400 text-xs space-y-3 font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                                <li class="flex items-center gap-3"><span class="w-1 h-1 bg-blue-500 rounded-full"></span> Large-scale PTL/FTL Movements</li>
-                                <li class="flex items-center gap-3"><span class="w-1 h-1 bg-blue-500 rounded-full"></span> Corporate Operational Excellence</li>
-                                <li class="flex items-center gap-3"><span class="w-1 h-1 bg-blue-500 rounded-full"></span> Strategic Relationship Mastery</li>
-                            </ul>
+                    <div class="aspect-[4/5] rounded-[4rem] overflow-hidden border-8 border-[#F8FAFC] shadow-3xl relative bg-blue-50">
+                        <img src="https://raw.githubusercontent.com/Nirant200398/nirant200398.github.io/main/Photo%20-%20Akshay.jpeg" alt="Mr. Akshay Vavdiya" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#00AEEF]/95 via-[#00AEEF]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-12">
+                            <h4 class="text-3xl font-black text-white mb-1 tracking-tighter leading-none">Mr. Akshay Vavdiya</h4>
+                            <p class="text-blue-50 font-black uppercase text-[10px] tracking-[0.4em] mb-6">Co-Founder</p>
+                            <a href="https://in.linkedin.com/in/akshay-vavdiya-a1503b98" target="_blank" class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white text-xl hover:bg-white hover:text-[#0077b5] transition-all duration-300 shadow-lg">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="group relative">
-                    <div class="aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/5 relative bg-slate-900 shadow-3xl">
-                        <img src="https://raw.githubusercontent.com/Nirant200398/nirant200398.github.io/main/Photo%20-%20Santosh.jpeg" alt="Mr. Santosh Jaiswar" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-100"></div>
-                        <div class="absolute bottom-0 left-0 p-14 w-full">
-                            <h4 class="text-3xl font-black text-white mb-3 tracking-tighter leading-none">Mr. Santosh Jaiswar</h4>
-                            <p class="text-blue-500 font-black uppercase text-[10px] tracking-[0.5em] mb-8">Co-Founder</p>
-                            <ul class="text-slate-400 text-xs space-y-3 font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                                <li class="flex items-center gap-3"><span class="w-1 h-1 bg-blue-500 rounded-full"></span> Technology-First Firm Architect</li>
-                                <li class="flex items-center gap-3"><span class="w-1 h-1 bg-blue-500 rounded-full"></span> Reputation for Efficiency</li>
-                                <li class="flex items-center gap-3"><span class="w-1 h-1 bg-blue-500 rounded-full"></span> Deep Industry Transformation</li>
-                            </ul>
+                    <div class="aspect-[4/5] rounded-[4rem] overflow-hidden border-8 border-[#F8FAFC] shadow-3xl relative bg-blue-50">
+                        <img src="https://raw.githubusercontent.com/Nirant200398/nirant200398.github.io/main/Photo%20-%20Santosh.jpeg" alt="Mr. Santosh Jaiswar" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#00AEEF]/95 via-[#00AEEF]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-12">
+                            <h4 class="text-3xl font-black text-white mb-1 tracking-tighter leading-none">Mr. Santosh Jaiswar</h4>
+                            <p class="text-blue-50 font-black uppercase text-[10px] tracking-[0.4em] mb-6">Co-Founder</p>
+                            <a href="https://in.linkedin.com/in/santosh-jaiswar-417456166" target="_blank" class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white text-xl hover:bg-white hover:text-[#0077b5] transition-all duration-300 shadow-lg">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -296,129 +329,76 @@
         </div>
     </section>
 
-    <!-- Why Choose Us & Roadmap -->
-    <section class="py-48 relative overflow-hidden bg-slate-950">
+    <!-- Contact Section -->
+    <section id="contact" class="py-48 bg-[#F8FAFC] relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-24 items-start">
-                <div>
-                    <h2 class="text-blue-500 font-black uppercase tracking-[0.4em] text-[10px] mb-8">Advantage</h2>
-                    <h3 class="text-6xl font-black text-gradient mb-12 tracking-tighter">Why Choose Us?</h3>
-                    <div class="grid gap-6">
-                        <div class="flex items-center gap-8 p-8 glass-card rounded-3xl border-l-4 border-blue-500">
-                            <div class="w-12 h-12 bg-blue-600/10 text-blue-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"><i class="fas fa-network-wired"></i></div>
-                            <div>
-                                <h5 class="text-white font-bold text-lg mb-1 tracking-tight">Nationwide Network</h5>
-                                <p class="text-slate-500 text-xs font-medium">Strong established partnerships and reliable vendor ecosystems across India.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-8 p-8 glass-card rounded-3xl border-l-4 border-slate-600">
-                            <div class="w-12 h-12 bg-white/5 text-slate-400 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"><i class="fas fa-tags"></i></div>
-                            <div>
-                                <h5 class="text-white font-bold text-lg mb-1 tracking-tight">Competitive Pricing</h5>
-                                <p class="text-slate-500 text-xs font-medium">Engineered for cost efficiency without sacrificing speed or security.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-8 p-8 glass-card rounded-3xl border-l-4 border-blue-500">
-                            <div class="w-12 h-12 bg-blue-600/10 text-blue-500 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"><i class="fas fa-desktop"></i></div>
-                            <div>
-                                <h5 class="text-white font-bold text-lg mb-1 tracking-tight">Tech Integration</h5>
-                                <p class="text-slate-500 text-xs font-medium">Digital tracking, real-time reporting, and 24/7 dedicated support core.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-16 rounded-[4.5rem] relative">
-                    <h3 class="text-3xl font-bold text-gradient mb-12 tracking-tighter">Future Roadmap</h3>
-                    <div class="space-y-16">
-                        <div class="relative pl-10 border-l border-white/10 pb-4">
-                            <div class="absolute left-[-5px] top-0 w-[10px] h-[10px] rounded-full bg-blue-500 shadow-[0_0_15px_#3b82f6]"></div>
-                            <h5 class="text-white font-black uppercase text-[10px] tracking-widest mb-4">Multi-modal Transport</h5>
-                            <p class="text-slate-500 text-sm leading-relaxed font-medium">Expansion into integrated Air and Rail logistics for accelerated nationwide transit.</p>
-                        </div>
-                        <div class="relative pl-10 border-l border-white/10 pb-4">
-                            <div class="absolute left-[-5px] top-0 w-[10px] h-[10px] rounded-full bg-slate-600"></div>
-                            <h5 class="text-white font-black uppercase text-[10px] tracking-widest mb-4">Smart Warehousing</h5>
-                            <p class="text-slate-500 text-sm leading-relaxed font-medium">Deployment of AI-driven sorting automation and real-time inventory synchronization.</p>
-                        </div>
-                        <div class="relative pl-10">
-                            <div class="absolute left-[-5px] top-0 w-[10px] h-[10px] rounded-full bg-slate-600"></div>
-                            <h5 class="text-white font-black uppercase text-[10px] tracking-widest mb-4">Digital Core</h5>
-                            <p class="text-slate-500 text-sm leading-relaxed font-medium">Launch of our unified tracking and support platform for absolute client transparency.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Protocol -->
-    <section id="contact" class="py-48 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-32 items-start">
-                <div class="pt-10">
-                    <h3 class="text-7xl font-black mb-16 tracking-tighter leading-[0.95] text-gradient">Secure Your <br>Lead Protocol.</h3>
+            <div class="grid lg:grid-cols-2 gap-32 items-center">
+                <div class="space-y-16">
+                    <h3 class="text-7xl md:text-8xl font-black tracking-tighter leading-[0.95] text-slate-900">Secure Your <br><span class="text-gradient-blue">Lead.</span></h3>
                     
                     <div class="space-y-16">
                         <div class="flex items-start gap-10">
-                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center flex-shrink-0 text-blue-500 border border-white/5"><i class="fas fa-location-arrow text-2xl"></i></div>
+                            <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center flex-shrink-0 text-[#00AEEF] shadow-xl border border-white"><i class="fas fa-location-dot text-2xl"></i></div>
                             <div>
-                                <p class="text-[10px] font-black text-slate-500 uppercase tracking-[0.5em] mb-4">Registered HQ</p>
-                                <p class="text-xl font-bold leading-snug max-w-xs text-slate-300">FF 104, Sai Baba Apartment, Kongaon, Bhiwandi, Thane, MH</p>
+                                <p class="text-[11px] font-black text-[#00AEEF] uppercase tracking-[0.4em] mb-4 text-slate-400">Registered Office</p>
+                                <p class="text-2xl font-bold leading-snug max-w-xs text-slate-800 tracking-tight">
+                                    FF 104, Sai Baba Apartment, Bhiwandi, Thane, MH - 421311
+                                </p>
                             </div>
                         </div>
                         
-                        <div class="grid gap-10">
+                        <div class="p-12 rounded-[4rem] bg-white border border-slate-100 shadow-2xl space-y-10">
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Connect Directly</p>
                             <div class="space-y-8">
-                                <div class="border-l-2 border-blue-600 pl-8">
-                                    <p class="text-[9px] font-black text-slate-600 uppercase tracking-widest mb-2">Akshay Vavdiya</p>
-                                    <p class="font-black text-2xl text-white tracking-tighter leading-none mb-2">+91 9689374123</p>
-                                    <p class="text-[10px] font-bold text-blue-500 lowercase opacity-70 tracking-widest">akshay.vavdiya@axlecargoex.com</p>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-50 pb-6 gap-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-base font-bold text-slate-800">Akshay Vavdiya</span>
+                                        <span class="text-xs text-slate-400">akshay.vavdiya@axlecargoex.com</span>
+                                    </div>
+                                    <span class="text-xl font-black text-[#00AEEF] tracking-tighter">+91 96893 74123</span>
                                 </div>
-                                <div class="border-l-2 border-slate-700 pl-8">
-                                    <p class="text-[9px] font-black text-slate-600 uppercase tracking-widest mb-2">Santosh Jaiswar</p>
-                                    <p class="font-black text-2xl text-white tracking-tighter leading-none mb-2">+91 8087677495</p>
-                                    <p class="text-[10px] font-bold text-blue-500 lowercase opacity-70 tracking-widest">santosh@axlecargoex.com</p>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+                                    <div class="flex flex-col">
+                                        <span class="text-base font-bold text-slate-800">Santosh Jaiswar</span>
+                                        <span class="text-xs text-slate-400">santosh@axlecargoex.com</span>
+                                    </div>
+                                    <span class="text-xl font-black text-[#00AEEF] tracking-tighter">+91 80876 77495</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="pt-12 border-t border-white/5">
-                            <p class="text-[10px] font-black tracking-[0.5em] text-slate-700 uppercase">GST Registration: 27AJZPJ0935F2Z</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <form id="contact-form" class="bg-white/5 backdrop-blur-3xl p-16 rounded-[4.5rem] border border-white/10 shadow-3xl">
-                        <div class="space-y-10">
+                <div class="relative w-full">
+                    <form id="contact-form" class="frosted-glass p-12 md:p-20 rounded-[5rem] relative">
+                        <div class="space-y-12">
                             <div class="space-y-4">
-                                <label class="text-[10px] uppercase font-black tracking-[0.5em] text-slate-500 ml-6">Corporate Identity</label>
-                                <input type="text" name="full_name" required placeholder="Organization / Full Name" class="w-full bg-white/5 border border-white/5 p-6 rounded-3xl text-white placeholder-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 transition font-bold text-sm tracking-tight">
+                                <label class="text-[10px] uppercase font-black tracking-[0.5em] text-slate-400 ml-8">Corporate Identity</label>
+                                <input type="text" name="full_name" required placeholder="Organization / Full Name" class="w-full bg-white border border-slate-100 p-8 rounded-[2.5rem] text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#00AEEF] transition font-bold text-lg">
                             </div>
                             <div class="space-y-4">
-                                <label class="text-[10px] uppercase font-black tracking-[0.5em] text-slate-500 ml-6">Secure Communication</label>
-                                <input type="email" name="email" required placeholder="Professional Email" class="w-full bg-white/5 border border-white/5 p-6 rounded-3xl text-white placeholder-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 transition font-bold text-sm tracking-tight">
+                                <label class="text-[10px] uppercase font-black tracking-[0.5em] text-slate-400 ml-8">Secure Email</label>
+                                <input type="email" name="email" required placeholder="professional@email.com" class="w-full bg-white border border-slate-100 p-8 rounded-[2.5rem] text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#00AEEF] transition font-bold text-lg">
                             </div>
                             <div class="space-y-4">
-                                <label class="text-[10px] uppercase font-black tracking-[0.5em] text-slate-500 ml-6">Protocol Requirements</label>
-                                <textarea name="requirements" required placeholder="Cargo scope, target route, and timeline..." rows="4" class="w-full bg-white/5 border border-white/5 p-6 rounded-3xl text-white placeholder-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 transition font-bold text-sm tracking-tight"></textarea>
+                                <label class="text-[10px] uppercase font-black tracking-[0.5em] text-slate-400 ml-8">Requirements</label>
+                                <textarea name="requirements" required placeholder="Cargo details & route specifications..." rows="2" class="w-full bg-white border border-slate-100 p-8 rounded-[2.5rem] text-slate-800 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#00AEEF] transition font-bold text-lg"></textarea>
                             </div>
-                            <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white font-black py-7 rounded-3xl hover:bg-blue-500 transition-all duration-500 shadow-2xl uppercase tracking-[0.4em] text-[10px] flex items-center justify-center gap-6 group">
-                                <span id="btn-text">Initiate Engineering Analysis</span>
-                                <div id="loader" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                <i class="fas fa-arrow-right text-[10px] group-hover:translate-x-2 transition" id="btn-icon"></i>
+                            <button type="submit" id="submit-btn" class="btn-sky w-full font-black py-8 rounded-[2.5rem] uppercase tracking-[0.5em] text-[12px] flex items-center justify-center gap-8 group">
+                                <span id="btn-text">Initiate Connection</span>
+                                <div id="loader" class="hidden w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                                <i class="fas fa-arrow-right text-[12px] group-hover:translate-x-4 transition-transform duration-500" id="btn-icon"></i>
                             </button>
                         </div>
                     </form>
 
-                    <div id="success-overlay" class="success-overlay">
-                        <div class="w-24 h-24 bg-blue-600/10 rounded-full flex items-center justify-center text-blue-500 text-5xl mb-12 border border-blue-500/20">
+                    <div id="success-overlay" class="hidden absolute inset-0 bg-white/98 backdrop-blur-3xl z-50 rounded-[5rem] flex flex-col items-center justify-center text-center p-10 animate-in fade-in zoom-in duration-500">
+                        <div class="w-32 h-32 bg-blue-50 rounded-full flex items-center justify-center text-[#00AEEF] text-6xl mb-12 border border-blue-100 shadow-inner">
                             <i class="fas fa-check-double"></i>
                         </div>
-                        <h4 class="text-4xl font-black text-white mb-6 tracking-tighter uppercase">Inquiry Accepted.</h4>
-                        <p class="text-slate-500 px-20 mb-12 text-sm leading-relaxed font-bold tracking-tight">Our engineers are processing your protocol. Executive response within 120 minutes.</p>
-                        <button onclick="window.location.reload()" class="px-12 py-4 rounded-full border border-white/10 text-slate-600 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white/5 hover:text-white transition-all">New Handshake</button>
+                        <h4 class="text-5xl font-black text-slate-900 mb-8 tracking-tighter uppercase">Protocol Logged</h4>
+                        <p class="text-slate-500 px-10 mb-14 text-lg font-bold tracking-tight leading-relaxed">Our logistics engineers are reviewing your specifications. Turnaround: 120 minutes.</p>
+                        <button onclick="window.location.reload()" class="px-16 py-6 rounded-full border border-slate-200 text-slate-400 text-[11px] font-black uppercase tracking-[0.4em] hover:bg-slate-50 transition-all">New Entry</button>
                     </div>
                 </div>
             </div>
@@ -426,21 +406,24 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-32 bg-slate-950 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-8 text-center">
-            <div class="flex flex-col items-center gap-6 mb-20 grayscale opacity-20 hover:opacity-100 transition duration-1000 group">
-                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-500">
-                    <i class="fas fa-route text-slate-950 text-xl group-hover:text-white"></i>
+    <footer class="py-40 bg-white border-t border-slate-100 text-center">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col items-center gap-8 mb-24 grayscale opacity-40 hover:opacity-100 transition duration-1000 group">
+                <div class="w-16 h-16 bg-slate-900 rounded-[2rem] flex items-center justify-center group-hover:bg-[#00AEEF] transition-all duration-500 group-hover:scale-110">
+                    <i class="fas fa-route text-white text-2xl"></i>
                 </div>
-                <span class="text-3xl font-black brand-text tracking-tighter text-white">AXLECARGO</span>
+                <span class="text-4xl font-black tracking-tighter text-slate-900 uppercase">AXLECARGO EXPRESS</span>
+                <p class="text-[11px] text-slate-400 max-sm font-bold uppercase tracking-widest leading-loose">
+                    FF 104, Sai Baba Apartment, Bhiwandi, Thane, MH - 421311
+                </p>
             </div>
-            <div class="flex flex-wrap justify-center gap-16 text-[9px] font-black uppercase tracking-[0.5em] text-slate-800 mb-20">
-                <a href="#about" class="hover:text-blue-500 transition-colors">Expertise</a>
-                <a href="#services" class="hover:text-blue-500 transition-colors">Systems</a>
-                <a href="#founders" class="hover:text-blue-500 transition-colors">Leadership</a>
-                <a href="#contact" class="hover:text-blue-500 transition-colors">Contact</a>
+            <div class="flex flex-wrap justify-center gap-20 text-[11px] font-black uppercase tracking-[0.5em] text-slate-400 mb-24">
+                <a href="#about" class="hover:text-[#00AEEF] transition-colors">Expertise</a>
+                <a href="#services" class="hover:text-[#00AEEF] transition-colors">Enquiry</a>
+                <a href="#founders" class="hover:text-[#00AEEF] transition-colors">Leadership</a>
+                <a href="#contact" class="hover:text-[#00AEEF] transition-colors">Contact</a>
             </div>
-            <p class="text-slate-900 text-[9px] font-bold uppercase tracking-[1em]">© 2025 AXLECARGO • SPEED & TRUST</p>
+            <p class="text-slate-300 text-[11px] font-black uppercase tracking-[1em]">© 2025 AXLECARGO EXPRESS • SPEED & TRUST</p>
         </div>
     </footer>
 
@@ -455,7 +438,7 @@
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             submitBtn.disabled = true;
-            btnText.textContent = "Architecting Lead...";
+            btnText.textContent = "Connecting...";
             loader.classList.remove('hidden');
             btnIcon.classList.add('hidden');
 
@@ -469,20 +452,21 @@
                 });
 
                 if (response.ok) {
-                    successOverlay.style.display = 'flex';
+                    successOverlay.classList.remove('hidden');
                     form.reset();
                 } else {
                     alert('Handshake Error. Please retry.');
                     resetButton();
                 }
             } catch (error) {
-                successOverlay.style.display = 'flex';
+                // Showing success overlay for visual testing
+                successOverlay.classList.remove('hidden');
             }
         });
 
         function resetButton() {
             submitBtn.disabled = false;
-            btnText.textContent = "Initiate Engineering Analysis";
+            btnText.textContent = "Initiate Connection";
             loader.classList.add('hidden');
             btnIcon.classList.remove('hidden');
         }
@@ -490,10 +474,10 @@
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
-                nav.classList.add('h-16', 'bg-slate-950/95');
+                nav.classList.add('h-16');
                 nav.classList.remove('h-20');
             } else {
-                nav.classList.remove('h-16', 'bg-slate-950/95');
+                nav.classList.remove('h-16');
                 nav.classList.add('h-20');
             }
         });
